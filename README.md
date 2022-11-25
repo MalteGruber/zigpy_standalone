@@ -1,8 +1,8 @@
 # Zigpy Hello World
-This program is a interactive hello world example for the [zigpy](https://github.com/zigpy/zigpy) library.
+This program is an interactive hello world example for the [zigpy](https://github.com/zigpy/zigpy) library.
 
 ## Supported radios
-Have a look under https://github.com/zigpy for the latest supported radios, here are some of the radios that are supported at the point of writing
+Have a look under https://github.com/zigpy for the latest supported radios. Here are some of the radios that are supported at the point of writing
 
 https://github.com/zigpy/zigpy-deconz
 
@@ -13,6 +13,16 @@ https://github.com/zigpy/zigpy-znp
 https://github.com/zigpy/zigpy-cc
 
 https://github.com/zigpy/zigpy-zigate
+
+To change the radio type, replace the zigpy_xbee with your radio type and install the library using pip.
+```python
+from zigpy_xbee.zigbee.application import ControllerApplication
+```
+If we were using zigpy-deconz the following would be used:
+
+```python
+from zigpy_deconz.zigbee.application import ControllerApplication
+```
 
 **List all devices**
 ```
@@ -53,7 +63,7 @@ This is an example of how the program can be used to interact with a wall switch
 
 ### Pairing the device
 
-First we need to tell the coordinator to go into pairing mode, the zigbee standard says that the maximum time is 254 seconds, so we provide 120 seconds as the pairing window
+First we need to tell the coordinator to go into pairing mode, the ZigBee standard says that the maximum time is 254 seconds, so we provide 120 seconds as the pairing window.
 
 ```
 >pair 120
@@ -61,12 +71,12 @@ Allowing pairing for 120 seconds
 ```
 *We now put the zigbee device to be paired into pairing mode*
 
-When we get a message like this we know the device joined the coordinator
+When we get a message like this we know the device joined the coordinator.
 ```
 >device_joined <Device model='TRADFRI on/off switch' manuf='IKEA of Sweden' nwk=0x7E7D ieee=04:cd:15:ff:fe:0f:b2:29 is_initialized=True>
 ```
 ### Binding the device
-We are using zigbee ZCL to get data from the switch, this means for the switch to send anything to us we first have to bind to a cluster (See the cluster device info section for how to get a list of the clusters of a device). These clusters are defined by the standard and provide a predifined way of interacting with a device.
+We are using ZigBee ZCL to get data from the switch. This means for the switch to send anything to us we first have to bind to a cluster (See the cluster device info section for how to get a list of the clusters of a device). These clusters are defined by the standard and provide a predefined way of interacting with a device.
 
 ```
 >bind 1 1 6 out
@@ -74,12 +84,12 @@ IEEE 04:cd:15:ff:fe:0f:b2:29
 Binding device <Device model='TRADFRI on/off switch' manuf='IKEA of Sweden' nwk=0x7E7D ieee=04:cd:15:ff:fe:0f:b2:29 is_initialized=True>
 ``` 
 
-## Reading material and getting started with Zigbee
+## Reading material and get started with Zigbee
 
 
 
 ### Clusters
-For information about various clusters have a look in [/zigpy/zcl/clusters](https://github.com/zigpy/zigpy/blob/dev/zigpy/zcl/clusters/).
+For information about various clusters, have a look in [/zigpy/zcl/clusters](https://github.com/zigpy/zigpy/blob/dev/zigpy/zcl/clusters/).
 
 For example in the cluster OnOff (6) the zigpy library defines the attributes and commands in the class
 ```python
