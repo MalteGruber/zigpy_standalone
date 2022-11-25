@@ -14,7 +14,7 @@ https://github.com/zigpy/zigpy-cc
 
 https://github.com/zigpy/zigpy-zigate
 
-To change the radio type, replace the zigpy_xbee with your radio type and install the library using pip.
+To change the radio type, replace the zigpy_xbee with your radio type and install the library using pip. Also ensure you change the device settings such as UART baud rate if needed.
 ```python
 from zigpy_xbee.zigbee.application import ControllerApplication
 ```
@@ -22,6 +22,23 @@ If we were using zigpy-deconz the following would be used:
 
 ```python
 from zigpy_deconz.zigbee.application import ControllerApplication
+```
+
+## Usage
+
+The program is started with `./zigpy_app.py`
+```bash
+mg@computer:~/zigpy-standalone$ ./zigpy_app.py 
+Started ZigPy ControllerApplication
+Zigbee started!
+>?
+Avalible commands are
+pair p  : Enable pairing mode
+bind bd         : Bind to a device
+list ls         : Shows all avalible devices
+device d        : Shows device information
+q quit  : Quit program
+>
 ```
 
 **List all devices**

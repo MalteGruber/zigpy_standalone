@@ -27,10 +27,12 @@ def help():
 
 
 async def _handle_command(argv):
-    if(argv in [["help"],["?"]]):
-        help()           
-            
     found=False
+    if(argv in [["help"],["?"]]):
+        help()          
+        found=True 
+            
+
     for cmd in _cmds:
         if argv[0] in cmd.get("commands"):
             callback=cmd.get("callback")

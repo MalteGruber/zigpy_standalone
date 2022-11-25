@@ -89,7 +89,7 @@ async def devices_cmd(argv):
                     print("Output clusters:")
                     print_clusters_info(endpoint.out_clusters)
 
-@demo_command(commands=["q","quit"],desc="Bind to a device")
+@demo_command(commands=["q","quit"],desc="Quit program")
 async def stop_program(argv):      
     global running
     import sys
